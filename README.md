@@ -1,0 +1,2 @@
+# vegamir
+Vegetarian blog
