@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(20);
+        $posts = Post::with('category','tags','user')->paginate(20);
         
         return view('verwaltung.posts.index', compact('posts'));
     }
@@ -98,6 +98,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $post = Post::find($id);
+        $post->tags()->sync([]);
+        Storage::delete($post->thumbnail);
+        $post->delete();
         return redirect()->route('posts.index')->with('success','Статья успешно удалена');
     }
 }

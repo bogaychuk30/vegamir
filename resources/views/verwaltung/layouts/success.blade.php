@@ -2,7 +2,7 @@
     <div class="row">
     <div class="col-12">
         @if (session()->has('success'))
-            <div class="alert alert-success m-0">
+            <div class="alert alert-success mx-2">
                 {{session('success')}}
             </div>
         @endif
