@@ -78,7 +78,11 @@ class UserController extends Controller
     public function update(UpdateUser $request, $id)
     {
         $user = User::find($id);
-        $user->update($request->all());
+        $user->update([
+            'name'              => $request->name,
+            'email'             => $request->email,
+            'password'          => bcrypt($request->password)
+        ]);
         return redirect()->route('register.index')->with('success','Пользователь успешно обновлен');
     }
 

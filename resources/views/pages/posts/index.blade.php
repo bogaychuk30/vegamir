@@ -1,6 +1,6 @@
 @extends('pages.layouts.layout')
 
-@section('title', 'Markedia - Marketing Blog Template :: Home')
+@section('title', 'Vegamir - Vega Blog :: Home')
 
 @section('header')
 
